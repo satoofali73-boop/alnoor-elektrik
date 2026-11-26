@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080808">
+<title>مؤسسة النور للكهرباء</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --gold: #d4af37;
+    --black: #080808;
+    --card: #181818;
+}
+
+body {
+    background: var(--black);
+    color: white;
+    font-family: Tahoma, Arial, sans-serif;
+    line-height: 1.8;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(8,8,8,.97);
+    border-bottom: 1px solid var(--gold);
+    padding: 15px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--gold);
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.logo small {
+    display: block;
+    color: white;
+    font-size: 11px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+.hero {
+    min-height: 580px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px;
+    background:
+    linear-gradient(rgba(0,0,0,.78),rgba(0,0,0,.9)),
+    url("https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1600")
+    center/cover;
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.hero h1 {
+    color: var(--gold);
+    font-size: clamp(35px,7vw,65px);
+    margin-bottom: 20px;
+}
+
+.hero p {
+    color: #eee;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 27px;
+    margin: 5px;
+    border: 1px solid var(--gold);
+    border-radius: 8px;
+    background: var(--gold);
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: transparent;
+    color: var(--gold);
+}
+
+section {
+    padding: 75px 7%;
+}
+
+.title {
+    text-align: center;
+    color: var(--gold);
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #aaa;
+    margin-bottom: 40px;
+}
+
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 20px;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid #66521e;
+    border-radius: 15px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+    border-color: var(--gold);
+    box-shadow: 0 10px 30px #d4af3722;
+}
+
+.icon {
+    font-size: 43px;
+}
+
+.card h3 {
+    color: var(--gold);
+    margin: 12px 0;
+}
+
+.card p {
+    color: #bbb;
+    font-size: 14px;
+}
+
+.about {
+    background: #111;
+    text-align: center;
+}
+
+.about p {
+    color: #ccc;
+    max-width: 750px;
+    margin: auto;
+    font-size: 17px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    background: var(--card);
+    border: 1px solid #66521e;
+    border-radius: 13px;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.04);
+}
+
+.gallery-item h3 {
+    color: var(--gold);
+    text-align: center;
+    padding: 12px;
+}
+
+.contact {
+    background: #111;
+    text-align: center;
+}
+
+.contact-box {
+    max-width: 600px;
+    margin: auto;
+    background: var(--card);
+    border: 1px solid #66521e;
+    border-radius: 15px;
+    padding: 25px;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 14px;
+    margin: 8px 0;
+    border-radius: 7px;
+    border: 1px solid #555;
+    background: #080808;
+    color: white;
+    font-family: inherit;
+    font-size: 15px;
+}
+
+textarea {
+    min-height: 110px;
+}
+
+.contact button {
+    width: 100%;
+    font-size: 16px;
+}
+
+.contact-info {
+    margin-top: 25px;
+    color: #ccc;
+}
+
+.contact-info a {
+    color: var(--gold);
+    text-decoration: none;
+}
+
+footer {
+    padding: 30px 15px;
+    background: #050505;
+    border-top: 1px solid var(--gold);
+    text-align: center;
+    color: #aaa;
+}
+
+footer strong {
+    color: var(--gold);
+}
+
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 200;
+    background: #25d366;
+    color: white;
+    padding: 13px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#imageViewer {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #000e;
+    z-index: 500;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+#imageViewer img {
+    max-width: 95%;
+    max-height: 85vh;
+    border: 2px solid var(--gold);
+    border-radius: 10px;
+}
+
+#closeViewer {
+    position: absolute;
+    top: 15px;
+    left: 25px;
+    color: white;
+    font-size: 35px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+@media(max-width:700px) {
+    header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    .hero {
+        min-height: 480px;
+    }
+
+    section {
+        padding: 55px 5%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        ⚡ مؤسسة النور
+        <small>AL NOOR ELECTRICAL</small>
+    </div>
+
+    <nav>
+        <a href="#home">الرئيسية</a>
+        <a href="#services">الخدمات</a>
+        <a href="#about">من نحن</a>
+        <a href="#gallery">أعمالنا</a>
+        <a href="#contact">اتصل بنا</a>
+    </nav>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>مؤسسة النور للكهرباء</h1>
+        <p>
+            حلول كهربائية احترافية وجودة في تنفيذ الأعمال.
+            نعمل على تلبية احتياجاتكم بكل اهتمام.
+        </p>
+        <a href="#services" class="btn">اكتشف خدماتنا</a>
+        <a href="#contact" class="btn">اطلب خدمة الآن</a>
+    </div>
+</section>
+
+<section id="services">
+    <h2 class="title">خدماتنا</h2>
+    <p class="subtitle">خدمات كهربائية متنوعة لاحتياجاتكم</p>
+
+    <div class="services">
+
+        <div class="card">
+            <div class="icon">⚡</div>
+            <h3>تمديدات كهربائية</h3>
+            <p>تنفيذ وتمديد الشبكات الكهربائية للمباني.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">💡</div>
+            <h3>تركيب الإنارة</h3>
+            <p>تركيب أنظمة الإضاءة الداخلية والخارجية.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🔌</div>
+            <h3>صيانة كهربائية</h3>
+            <p>فحص الأعطال وإجراء أعمال الصيانة.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">📹</div>
+            <h3>كاميرات مراقبة</h3>
+            <p>تركيب وتجهيز أنظمة المراقبة.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🛠️</div>
+            <h3>لوحات كهربائية</h3>
+            <p>تركيب وتجهيز اللوحات الكهربائية.</p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🏠</div>
+            <h3>كهرباء المنازل</h3>
+            <p>خدمات كهربائية للمنازل والمحلات.</p>
+        </div>
+
+    </div>
+</section>
+
+<section class="about" id="about">
+    <h2 class="title">من نحن</h2>
+    <p>
+        مؤسسة النور للكهرباء تقدم خدمات كهربائية متنوعة،
+        وتهتم بجودة التنفيذ ودقة العمل وتلبية احتياجات العملاء.
+        هدفنا تقديم حلول مناسبة وتنفيذ الأعمال بعناية واحترافية.
+    </p>
+</section>
+
+<section id="gallery">
+    <h2 class="title">معرض أعمالنا</h2>
+    <p class="subtitle">نماذج من أعمال مؤسسة النور للكهرباء</p>
+
+    <div class="gallery">
+
+        <div class="gallery-item">
+            <img onclick="showImage(this.src)"
+            src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=700"
+            alt="تمديدات كهربائية">
+            <h3>تمديدات كهربائية</h3>
+        </div>
+
+        <div class="gallery-item">
+            <img onclick="showImage(this.src)"
+            src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=700"
+            alt="صيانة كهربائية">
+            <h3>صيانة كهربائية</h3>
+        </div>
+
+        <div class="gallery-item">
+            <img onclick="showImage(this.src)"
+            src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=700"
+            alt="تركيب الإنارة">
+            <h3>تركيب الإنارة</h3>
+        </div>
+
+        <div class="gallery-item">
+            <img onclick="showImage(this.src)"
+            src="https://images.unsplash.com/photo-1558008258-3256797b43f3?w=700"
+            alt="كاميرات مراقبة">
+            <h3>كاميرات مراقبة</h3>
+        </div>
+
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <h2 class="title">اطلب خدمة الآن</h2>
+    <p class="subtitle">أرسل طلبك مباشرة عبر واتساب</p>
+
+    <div class="contact-box">
+
+        <form id="requestForm">
+
+            <input id="name" type="text"
+            placeholder="الاسم الكامل" required>
+
+            <input id="phone" type="tel"
+            placeholder="رقم الهاتف" required>
+
+            <select id="service" required>
+                <option value="">اختر الخدمة</option>
+                <option>تمديدات كهربائية</option>
+                <option>تركيب الإنارة</option>
+                <option>صيانة كهربائية</option>
+                <option>كاميرات مراقبة</option>
+                <option>لوحات كهربائية</option>
+                <option>خدمات أخرى</option>
+            </select>
+
+            <textarea id="details"
+            placeholder="تفاصيل الطلب"></textarea>
+
+            <button class="btn" type="submit">
+                إرسال الطلب عبر واتساب
+            </button>
+
+        </form>
+
+        <div class="contact-info">
+            <p>رقم الهاتف:</p>
+            <a href="tel:05348148132">05348148132</a>
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <strong>مؤسسة النور للكهرباء</strong>
+    <p>جميع الحقوق محفوظة © 2026</p>
+</footer>
+
+<a class="whatsapp"
+href="https://wa.me/905348148132"
+target="_blank">
+واتساب
+</a>
+
+<div id="imageViewer" onclick="closeImage()">
+    <button id="closeViewer">×</button>
+    <img id="largeImage" src="" alt="صورة مكبرة">
+</div>
+
+<script>
+const WHATSAPP_NUMBER = "905348148132";
+
+document.getElementById("requestForm")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const service = document.getElementById("service").value;
+    const details = document.getElementById("details").value.trim();
+
+    const message =
+        "طلب جديد من موقع مؤسسة النور للكهرباء\n\n" +
+        "الاسم: " + name + "\n" +
+        "الهاتف: " + phone + "\n" +
+        "الخدمة: " + service + "\n" +
+        "التفاصيل: " + details;
+
+    const url = "https://wa.me/" + WHATSAPP_NUMBER +
+        "?text=" + encodeURIComponent(message);
+
+    window.open(url, "_blank");
+});
+
+function showImage(src) {
+    document.getElementById("largeImage").src = src;
+    document.getElementById("imageViewer").style.display = "flex";
+}
+
+function closeImage() {
+    document.getElementById("imageViewer").style.display = "none";
+}
+</script>
+
+</body>
+</html>
